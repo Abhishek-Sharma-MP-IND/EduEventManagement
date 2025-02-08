@@ -11,9 +11,7 @@ import java.util.List;
 
 @RestController
 public class EducatorController {
-    // Adding the Code 
-
-    // New Code Added
+    
 
     @Autowired
     private EventService eventService;
