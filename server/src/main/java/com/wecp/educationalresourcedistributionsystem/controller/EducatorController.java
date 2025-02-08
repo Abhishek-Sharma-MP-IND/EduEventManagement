@@ -11,7 +11,7 @@ import java.util.List;
 
 
 public class EducatorController {
-
+    
 
     @GetMapping("/api/educator/agenda")
     public ResponseEntity<List<Event>> viewEventsAgenda() {
