@@ -13,17 +13,28 @@ import java.util.List;
 
 @RestController
 public class InstitutionController {
+<<<<<<< HEAD
     @Autowired
     private ResourceService resourceService;
+=======
+
+    @Autowired
+    private EventService eventService;
+>>>>>>> 5f57120dd99f8c0801f883dbd708c94802d75df8
 
     @PostMapping("/api/institution/event")
     public ResponseEntity<Event> createEvent(@RequestBody Event event) {
+        return new ResponseEntity<>(eventService.createEvent(event), HttpStatus.OK);
         // create an event and return created event with status code 201 (CREATED)
     }
 
     @GetMapping("/api/institution/events")
     public ResponseEntity<List<Event>> getAllEvents() {
+<<<<<<< HEAD
 
+=======
+        return new ResponseEntity<>(eventService.getAllEvents(), HttpStatus.OK);
+>>>>>>> 5f57120dd99f8c0801f883dbd708c94802d75df8
         // get all events and return the list with status code 200 (OK)
     }
 
