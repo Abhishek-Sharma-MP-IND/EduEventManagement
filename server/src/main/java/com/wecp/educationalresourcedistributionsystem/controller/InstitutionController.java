@@ -11,17 +11,21 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
-
+@RestController
 public class InstitutionController {
 
+    @Autowired
+    private EventService eventService;
 
     @PostMapping("/api/institution/event")
     public ResponseEntity<Event> createEvent(@RequestBody Event event) {
+        return new ResponseEntity<>(eventService.createEvent(event), HttpStatus.OK);
         // create an event and return created event with status code 201 (CREATED)
     }
 
     @GetMapping("/api/institution/events")
     public ResponseEntity<List<Event>> getAllEvents() {
+        return new ResponseEntity<>(eventService.getAllEvents(), HttpStatus.OK);
         // get all events and return the list with status code 200 (OK)
     }
 
