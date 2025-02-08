@@ -7,5 +7,6 @@ import org.springframework.stereotype.Repository;
 
 public interface EventRepository  {
 
+
     // extend jpa repostiory and add custom method if needed
 }
