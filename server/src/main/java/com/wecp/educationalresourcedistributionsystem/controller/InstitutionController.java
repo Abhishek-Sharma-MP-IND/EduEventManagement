@@ -13,8 +13,14 @@ import java.util.List;
 
 @RestController
 public class InstitutionController {
+
     @Autowired
     private ResourceService resourceService;
+
+
+    @Autowired
+    private EventService eventService;
+
 
     @PostMapping("/api/institution/event")
     public ResponseEntity<Event> createEvent(@RequestBody Event event) {
@@ -24,6 +30,7 @@ public class InstitutionController {
 
     @GetMapping("/api/institution/events")
     public ResponseEntity<List<Event>> getAllEvents() {
+        return new ResponseEntity<>(eventService.getAllEvents(), HttpStatus.OK);
         // get all events and return the list with status code 200 (OK)
     }
 
