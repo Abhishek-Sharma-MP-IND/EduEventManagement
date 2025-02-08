@@ -8,12 +8,14 @@ import java.util.List;
 public class Event {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
     private String description;
     private String materials;
 
+    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
     private List<Resource> resourceAllocations;  // Still to add relationship like onetomany or manytomany
 
     public Event() {

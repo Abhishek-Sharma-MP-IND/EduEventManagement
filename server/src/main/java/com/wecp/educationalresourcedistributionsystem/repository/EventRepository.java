@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface EventRepository extends JpaRepository<Event, Long> {
 
     // extend jpa repostiory and add custom method if needed
+
+    
 }
