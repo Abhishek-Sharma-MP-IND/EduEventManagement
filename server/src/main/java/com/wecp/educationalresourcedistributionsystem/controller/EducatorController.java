@@ -11,9 +11,7 @@ import java.util.List;
 
 
 public class EducatorController {
-    // Adding the Code 
-
-    // New Code Added
+    
 
     @GetMapping("/api/educator/agenda")
     public ResponseEntity<List<Event>> viewEventsAgenda() {
