@@ -48,11 +48,11 @@ public class InstitutionController {
         // get all resources and return the list with status code 200 (OK)
     }
 
-    @PostMapping("/api/institution/event/allocate-resources")
-    public ResponseEntity<Event> allocateResource(@RequestParam("eventId") Long eventId,
-                                                     @RequestParam("resourceId") Long resourceId) {
-        Event updatedEvent = eventService.allocateResourceToEvent(eventId, resourceId);
-        return new ResponseEntity<>(updatedEvent, HttpStatus.OK);
-        // allocate a resource to an event and return the updated event with status code 200 (OK)
-    }
+    // @PostMapping("/api/institution/event/allocate-resources")
+    // public ResponseEntity<Event> allocateResource(@RequestParam("eventId") Long eventId,
+    //                                                  @RequestParam("resourceId") Long resourceId) {
+    //     Event updatedEvent = eventService.allocateResourceToEvent(eventId, resourceId);
+    //     return new ResponseEntity<>(updatedEvent, HttpStatus.OK);
+    //     // allocate a resource to an event and return the updated event with status code 200 (OK)
+    // }
 }

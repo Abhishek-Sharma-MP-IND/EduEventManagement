@@ -20,6 +20,10 @@ public class EventRegistration {
       this.studentId = studentId;
       this.event = event;
    }
+   
+   public EventRegistration() {
+   }
+
    // Getters and Setters
    public Long getId() {
       return id;
