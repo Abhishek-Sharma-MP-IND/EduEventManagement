@@ -8,7 +8,7 @@ import javax.persistence.*;
 public class User {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String username;
@@ -29,8 +29,6 @@ public class User {
         this.email = email;
         this.role = role;
     }
-
-
 
     public Long getId() {
         return id;
