@@ -10,4 +10,5 @@ import java.util.List;
 @Repository
 public interface EventRegistrationRepository extends JpaRepository <EventRegistration, Long>{
     // extend jpa repostiory and add custom method if needed
+    List<EventRegistration> findByStudentId(Long studentId); 
 }

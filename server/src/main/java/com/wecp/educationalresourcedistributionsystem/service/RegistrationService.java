@@ -26,7 +26,7 @@ public class RegistrationService {
         return eventRegistrationRepository.save(registration);
     }
 
-    public Optional<EventRegistration> getRegistrationStatus(Long studentId) {
-        return eventRegistrationRepository.findById(studentId);
+    public List<EventRegistration> getRegistrationStatus(Long studentId) {
+        return eventRegistrationRepository.findByStudentId(studentId);
     }
 }

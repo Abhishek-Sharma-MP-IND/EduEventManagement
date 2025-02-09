@@ -23,9 +23,9 @@ public class StudentController {
     }
 
     @GetMapping("/api/student/registration-status/{studentId}")
-    public ResponseEntity<Optional<EventRegistration>> viewRegistrationStatus(@PathVariable Long studentId) {
+    public ResponseEntity<List<EventRegistration>> viewRegistrationStatus(@PathVariable Long studentId) {
         // return the list of events registered by the student with status code 200 (OK)
-        Optional<EventRegistration> registrationStatus = registrationService.getRegistrationStatus(studentId);
+        List<EventRegistration> registrationStatus = registrationService.getRegistrationStatus(studentId);
         return ResponseEntity.ok(registrationStatus);  // Return status code 200 (OK)
     }
 }

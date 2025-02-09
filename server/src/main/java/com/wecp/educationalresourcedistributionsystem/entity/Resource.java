@@ -7,6 +7,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "resource_allocation") // do not change table name
 public class Resource {
+    
 @Id
 @GeneratedValue(strategy = GenerationType.IDENTITY)
 private Long id;

@@ -17,24 +17,39 @@ public class EventService {
     @Autowired
     private EventRepository eventRepository;
 
-    public Event createEvent(Event event){
+    @Autowired
+    private ResourceRepository resourceRepository;
+
+    public Event createEvent(Event event) {
         return eventRepository.save(event);
     }
 
-    public List<Event> getAllEvents(){
+    public List<Event> getAllEvents() {
         return eventRepository.findAll();
     }
 
-    public Event updateEvent(Long eventId, Event updateEvent){
+    public Event updateEvent(Long eventId, Event updateEvent) {
         Optional<Event> event = eventRepository.findById(eventId);
-        if(event != null){
+        if (event.isPresent()) {
             Event e = event.get();
             updateEvent.setId(e.getId());
             return eventRepository.save(updateEvent);
-        }
-        else{
+        } else {
             throw new EntityNotFoundException("Event not found");
         }
+    }
+
+    public Event allocateResourceToEvent(Long eventId, Long resourceId) {
+        Event event = eventRepository.findById(eventId)
+                .orElseThrow(() -> new EntityNotFoundException("Event not found"));
+        Resource resource = resourceRepository.findById(resourceId)
+                .orElseThrow(() -> new EntityNotFoundException("Resource not found"));
+
+        resource.setEvent(event);
+        resourceRepository.save(resource);
+
+        event.getResourceAllocations().add(resource);
+        return eventRepository.save(event);
     }
     
 }

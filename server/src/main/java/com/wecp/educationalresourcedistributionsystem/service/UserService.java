@@ -12,10 +12,17 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 
-
+@Service
 public class UserService {
-
+@Autowired
+private UserRepository userRepository;
     // User Service
-
+public User registerUser(User user){
+    return userRepository.save(user);
+}
+ 
+// public User findByuserName(String username){
+//     return userRepository.findByUserName(username);
+// }
    
 }
