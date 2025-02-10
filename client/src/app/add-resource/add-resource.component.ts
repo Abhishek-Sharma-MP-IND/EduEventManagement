@@ -10,6 +10,10 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./add-resource.component.scss']
 })
 export class AddResourceComponent implements OnInit {
+  itemForm: any;
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
 
  //todo: complete missing code..
   
