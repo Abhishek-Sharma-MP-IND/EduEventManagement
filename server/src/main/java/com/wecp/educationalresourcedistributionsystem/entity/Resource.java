@@ -4,6 +4,9 @@ package com.wecp.educationalresourcedistributionsystem.entity;
 import java.util.List;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 @Table(name = "resource_allocation") // do not change table name
 public class Resource {
@@ -15,7 +18,8 @@ private String description;
 
 @ManyToOne
 @JoinColumn(name="event_id")
-private  Event event;
+@JsonIgnore
+private Event event;
 
 public Resource(){}
 

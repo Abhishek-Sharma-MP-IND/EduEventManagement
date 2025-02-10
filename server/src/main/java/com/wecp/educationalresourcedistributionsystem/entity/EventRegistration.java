@@ -12,6 +12,7 @@ public class EventRegistration {
    private Long id;
    private String status;
    private Long studentId;
+   
    @ManyToOne
    private Event event;
    public EventRegistration(Long id, String status, Long studentId, Event event) {
