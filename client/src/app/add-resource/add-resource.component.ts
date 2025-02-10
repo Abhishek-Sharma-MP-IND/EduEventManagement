@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // import { Component, OnInit } from '@angular/core';
 // import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 // import { Router } from '@angular/router';
@@ -114,8 +113,6 @@
 //   }
 // }
 
-=======
->>>>>>> 841a5a2fcbdc8ce3fe4a97910d8e3c10de8423bc
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -128,7 +125,6 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./add-resource.component.scss']
 })
 export class AddResourceComponent implements OnInit {
-<<<<<<< HEAD
 
   itemForm!: FormGroup;
   showError!: boolean;
@@ -182,13 +178,4 @@ export class AddResourceComponent implements OnInit {
       }
     );
   }
-=======
-  itemForm: any;
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
-  }
-
- //todo: complete missing code..
-  
->>>>>>> 841a5a2fcbdc8ce3fe4a97910d8e3c10de8423bc
 }

@@ -12,14 +12,6 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-<<<<<<< HEAD
-
-  itemForm!: FormGroup;
-  ngOnInit(): void {
-
-  }
-  //todo: Complete missing code..
-=======
  
   
 
@@ -71,5 +63,4 @@ export class LoginComponent implements OnInit {
 
 
   
->>>>>>> 841a5a2fcbdc8ce3fe4a97910d8e3c10de8423bc
 }
