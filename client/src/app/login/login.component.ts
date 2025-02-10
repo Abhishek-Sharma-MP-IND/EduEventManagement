@@ -12,5 +12,10 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+
+  itemForm!: FormGroup;
+  ngOnInit(): void {
+
+  }
   //todo: Complete missing code..
 }

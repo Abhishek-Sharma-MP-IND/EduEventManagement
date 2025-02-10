@@ -78,6 +78,7 @@ export class HttpService {
     getAllEventAgenda(): Observable<any> {
       return this.http.get(`${this.serverName}/api/educator/agenda`, { headers: this.getHeaders() });
     }
+    
   
     GetAllevents(): Observable<any> {
       return this.http.get(`${this.serverName}/api/institution/events`, { headers: this.getHeaders() });

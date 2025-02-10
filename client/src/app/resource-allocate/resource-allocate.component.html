@@ -1,1 +1,30 @@
-//todo: complete missing code
+<div class="resource-allocate-container">
+  <h2>Allocate Resources</h2>
+ 
+  <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="eventId">Select Event:</label>
+      <select formControlName="eventId">
+        <option *ngFor="let event of eventList" [value]="event.id">{{ event.name }}</option>
+      </select>
+     
+    </div>
+ 
+    <div class="form-group">
+      <label for="resourceId">Select Resource:</label>
+      <select formControlName="resourceId">
+        <option *ngFor="let resource of resourceList" [value]="resource.id">{{ resource.name }}</option>
+      </select>
+    </div>
+ 
+    <div class="form-group">
+      <label for="allocationDetails">Allocation Details:</label>
+      <textarea formControlName="allocationDetails" rows="3"></textarea>
+    </div>
+ 
+    <button type="submit" [disabled]="itemForm.invalid">Allocate</button>
+  </form>
+ 
+  <div *ngIf="showError" class="error-message">{{ errorMessage }}</div>
+  <div *ngIf="showMessage" class="success-message">{{ responseMessage }}</div>
+</div>
