@@ -1,1 +1,25 @@
-//todo: complete missing code..
+<div class="login-container">
+  <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+    <div>
+      <label for="username">Username:</label>
+      <input id="username" formControlName="username" type="text" />
+      <div *ngIf="itemForm.controls['username'].invalid && itemForm.controls['username'].touched">
+        Username is required
+      </div>
+    </div>
+
+    <div>
+      <label for="password">Password:</label>
+      <input id="password" formControlName="password" type="password" />
+      <div *ngIf="itemForm.controls['password'].invalid && itemForm.controls['password'].touched">
+        Password is required
+      </div>
+    </div>
+
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+
+    <button type="submit" [disabled]="itemForm.invalid">Login</button>
+  </form>
+</div>
