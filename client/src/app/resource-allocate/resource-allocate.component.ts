@@ -8,6 +8,7 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './resource-allocate.component.html',
   styleUrls: ['./resource-allocate.component.scss']
 })
+<<<<<<< HEAD
 export class ResourceAllocateComponent implements OnInit{
  
 //todo: complete missing code..
@@ -76,3 +77,10 @@ export class ResourceAllocateComponent implements OnInit{
 }
  
  
+=======
+export class ResourceAllocateComponent {
+  itemForm: any;
+//todo: complete missing code..
+  
+}
+>>>>>>> 841a5a2fcbdc8ce3fe4a97910d8e3c10de8423bc

@@ -10,5 +10,9 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./booking-details.component.scss']
 })
 export class BookingDetailsComponent {
+<<<<<<< HEAD
   itemForm!: FormGroup;
+=======
+  
+>>>>>>> 841a5a2fcbdc8ce3fe4a97910d8e3c10de8423bc
 }

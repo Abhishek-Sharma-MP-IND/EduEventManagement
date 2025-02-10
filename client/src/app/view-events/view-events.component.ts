@@ -10,6 +10,7 @@ import { AuthService } from '../../services/auth.service';
   templateUrl: './view-events.component.html',
   styleUrls: ['./view-events.component.scss']
 })
+<<<<<<< HEAD
 export class ViewEventsComponent implements OnInit {
   itemForm!: FormGroup;
   events: any[] = [];
@@ -79,3 +80,10 @@ export class ViewEventsComponent implements OnInit {
     }
   }
 }
+=======
+export class ViewEventsComponent {
+  itemForm: any;
+//todo: complete  missing code..
+  
+}
+>>>>>>> 841a5a2fcbdc8ce3fe4a97910d8e3c10de8423bc

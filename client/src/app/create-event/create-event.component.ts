@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 
+=======
+>>>>>>> 841a5a2fcbdc8ce3fe4a97910d8e3c10de8423bc
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -56,4 +59,9 @@ export class CreateEventComponent implements OnInit {
       this.errorMessage = 'Please fill in all required fields.';
     }
   }
+<<<<<<< HEAD
 }
+=======
+}
+ 
+>>>>>>> 841a5a2fcbdc8ce3fe4a97910d8e3c10de8423bc
