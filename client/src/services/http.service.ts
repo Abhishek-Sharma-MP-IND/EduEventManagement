@@ -37,8 +37,12 @@ export class HttpService {
     return this.http.get(`${this.serverName}/api/educator/agenda`, { headers: this.getHeaders() });
   }
 
+  // GetAllevents(): Observable<any> {
+  //   return this.http.get(`${this.serverName}/api/institution/events`, { headers: this.getHeaders() });
+  // }
+
   GetAllevents(): Observable<any> {
-    return this.http.get(`${this.serverName}/api/institution/events`, { headers: this.getHeaders() });
+    return this.http.get(`${environment.apiUrl}/api/institution/events`, { headers: this.getHeaders() });
   }
 
   GetAllResources(): Observable<any> {
