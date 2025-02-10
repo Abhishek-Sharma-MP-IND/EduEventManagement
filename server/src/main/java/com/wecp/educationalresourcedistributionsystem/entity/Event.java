@@ -1,6 +1,10 @@
 package com.wecp.educationalresourcedistributionsystem.entity;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.List;
 
 @Entity
@@ -15,7 +19,8 @@ public class Event {
     private String description;
     private String materials;
 
-    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    @ElementCollection
     private List<Resource> resourceAllocations;  // Still to add relationship like onetomany or manytomany
 
     public Event() {
