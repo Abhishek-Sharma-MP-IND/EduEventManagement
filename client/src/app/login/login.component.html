@@ -17,7 +17,7 @@
     </div>
 
     <div *ngIf="errorMessage" class="error-message">
-      {{ errorMessage }}
+      {{ errorMessage | json}}
     </div>
 
     <button type="submit" [disabled]="itemForm.invalid">Login</button>
