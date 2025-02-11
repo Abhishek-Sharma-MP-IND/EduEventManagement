@@ -1,3 +1,73 @@
-<div class="row text-center">
+<!-- <div class="row text-center">
 <h1 class="text-capitalize">Educational-Event-Management-System</h1>
+</div>
+ -->
+
+
+<div *ngIf="isUser">
+  <h1>Register for Event</h1>
+  <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+    <label>Event ID</label>
+    <input id="eventId" formControlName="eventId" type="text" />
+
+    <label>Student ID:</label>
+    <input id="studentId" formControlName="studentId" type="text" />
+
+    <button type="submit">Submit</button>
+  </form>
+  <div *ngIf="showMessage">{{ responseMessage }}</div>
+
+  <h2>Event List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Materials</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let event of events">
+        <td>{{ event.name }}</td>
+        <td>{{ event.description }}</td>
+        <td>{{ event.materials }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="isAdmin">
+  <h1>Manage Events</h1>
+  <form [formGroup]="itemForm" (ngSubmit)="onSubmit()">
+    <label for="name">Name:</label>
+    <input id="name" formControlName="name" type="text" />
+    <label for="description">Description:</label>
+    <textarea id="description" formControlName="description"></textarea>
+    <label for="materials">Materials:</label>
+    <input id="materials" formControlName="materials" type="text" />
+    <button type="submit">Submit</button>
+  </form>
+  <div *ngIf="showMessage">{{ responseMessage }}</div>
+
+  <h2>Event List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Materials</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let event of events">
+        <td>{{ event.name }}</td>
+        <td>{{ event.description }}</td>
+        <td>{{ event.materials }}</td>
+        <td>
+          <button (click)="onUpdate(event)">Update</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </div>

@@ -27,11 +27,11 @@
     </div>
 
     <div *ngIf="errorMessage" class="error-message">
-      {{ errorMessage | json}}
+      {{ errorMessage }}
     </div>
 
     <button type="submit" [disabled]="itemForm.invalid">Login</button>
   </form>
-  <p>Don't have an account? <a href="#" class="register-link">Registration</a></p>
+  <p>Don't have an account? <a routerLink="/registration" class="register-link">Registration</a></p>
 </div>
 </body>
