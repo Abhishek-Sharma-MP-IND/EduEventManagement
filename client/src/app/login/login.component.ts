@@ -13,15 +13,6 @@ import { AuthService } from '../../services/auth.service';
 })
 export class LoginComponent implements OnInit {
  
-  
-
-
-
-
-
-
-
-
 
  itemForm!: FormGroup;
   errorMessage: string = '';
@@ -29,7 +20,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private httpService: HttpService
   ) {}
 
   ngOnInit(): void {
@@ -43,10 +35,13 @@ export class LoginComponent implements OnInit {
     if (this.itemForm.valid) {
       const { username, password } = this.itemForm.value;
 
-      this.authService.login(username, password).subscribe(
+      this.httpService.Login(this.itemForm.value).subscribe(
         (response) => {
           // Assuming response contains a token
           localStorage.setItem('token', response.token);
+          localStorage.setItem('role', response.role);
+          localStorage.setItem('username', response.username);
+          console.log(localStorage.getItem('username'))
           this.router.navigate(['/dashboard']); // Redirect on successful login
         },
         (error) => {

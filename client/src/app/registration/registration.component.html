@@ -40,6 +40,6 @@
         <button type="submit" [disabled]="itemForm.invalid">Submit</button>
     </form>
     <div *ngIf="showMessage" class="response-message">
-        {{ responseMessage }}
+        {{ responseMessage |json }}
     </div>
 </div>
