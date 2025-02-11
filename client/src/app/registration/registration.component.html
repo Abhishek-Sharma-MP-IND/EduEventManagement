@@ -1,19 +1,38 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Educational Event Management System - Registration</title>
+    <link rel="styleSheet" href="styles.css">
+
+</head>
+<body>
 <div class="registration-container">
-    <h2>Register</h2>
+    <h2>EDUCATIONAL-EVENT-MANAGEMENT-SYSTEM</h2>
+    <p id="mess"> Please enter your details here</p>
     <form [formGroup]="itemForm" (ngSubmit)="onRegister()">
         <div class="form-group">
             <label for="username">Username</label>
-            <input id="username" type="text" formControlName="username">
-            <div *ngIf="itemForm.get('username')?.invalid && itemForm.get('username')?.touched">
+            <input id="username" type="text" formControlName="username" placeholder="Username">
+            <div *ngIf="itemForm.get('username')?.invalid && itemForm.get('username')?.touched" style="color: red;">
                 Username is required.
             </div>        
         </div>
 
         <div class="form-group">
             <label for="email">Email</label>
-            <input id="email" type="email" formControlName="email">
-            <div *ngIf="itemForm.get('email')?.invalid && itemForm.get('email')?.touched">
+            <input id="email" type="email" formControlName="email" placeholder="name@example.com">
+            <div *ngIf="itemForm.get('email')?.invalid && itemForm.get('email')?.touched" style="color: red;">
                 Valid email is required.
+            </div>
+        </div>
+
+        
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input id="password" type="password" formControlName="password" placeholder="********">
+            <div *ngIf="itemForm.get('password')?.invalid && itemForm.get('password')?.touched" style="color: red;">
+                Password is required.
             </div>
         </div>
 
@@ -24,23 +43,17 @@
                 <option value="user">User</option>
                 <option value="admin">Admin</option>
             </select>
-            <div *ngIf="itemForm.get('role')?.invalid && itemForm.get('role')?.touched">
+            <div *ngIf="itemForm.get('role')?.invalid && itemForm.get('role')?.touched" style="color: red;">
                 Role is required.
             </div>
         </div>
 
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input id="password" type="password" formControlName="password">
-            <div *ngIf="itemForm.get('password')?.invalid && itemForm.get('password')?.touched">
-                Password is required.
-            </div>
-        </div>
-
-        <button type="submit" [disabled]="itemForm.invalid">Submit</button>
-        <button routerLink="/registration">Register</button>
+        <button type="submit"  routerLink="/registration" [disabled]="itemForm.invalid">Submit</button>
+        <!-- <button routerLink="/registration">Register</button> -->
     </form>
+    <p><a class="register-link">Go to Login</a></p>
     <div *ngIf="showMessage" class="response-message">
         {{ responseMessage |json }}
     </div>
 </div>
+</body>
