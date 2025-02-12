@@ -1,17 +1,53 @@
-<!-- <app-navbar></app-navbar>
-  -->
 
-  <p>hiiiiiiiiii</p>
 <div class="dashboard-container">
+
+
+
+
+
+
+
+<nav class="navbar">
+    <ul>
+      <ng-container *ngIf="role === 'student'">
+        <li><a routerLink="/booking-details">View Booking Status</a></li>
+        <li><a routerLink="/register-for-event">Register for Event</a></li>
+        <li><a routerLink="/logout">Logout</a></li>
+      </ng-container>
+      <ng-container *ngIf="role === 'educator'">
+        <li><a routerLink="/view-events">View Events</a></li>
+        <li><a routerLink="/logout">Logout</a></li>
+      </ng-container>
+      <ng-container *ngIf="role === 'institution'">
+        <li><a routerLink="/create-event">Create Event</a></li>
+        <li><a routerLink="/add-resource">Add Resource</a></li>
+        <li><a routerLink="/resource-allocate">Allocate Resource</a></li>
+        <li><a routerLink="/logout">Logout</a></li>
+      </ng-container>
+    </ul>
+  </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+  
   <!-- Student Dashboard View -->
   <ng-container *ngIf="role === 'student'">
-    <nav>
+    <!-- <nav>
       <ul>
         <li><a routerLink="/booking-details">View Booking Status</a></li>
         <li><a routerLink="/register-for-event">Register for Event</a></li>
         <li><a routerLink="/logout">Logout</a></li>
       </ul>
-    </nav>
+    </nav> -->
  
     <section class="card">
       <h2>Registration for Event</h2>
@@ -48,12 +84,12 @@
  
   <!-- Educator Dashboard View -->
   <ng-container *ngIf="role === 'educator'">
-    <nav>
+    <!-- <nav>
       <ul>
         <li><a routerLink="/view-events">View Events</a></li>
         <li><a routerLink="/logout">Logout</a></li>
       </ul>
-    </nav>
+    </nav> -->
  
     <section class="card">
       <h2>Manage Events</h2>
@@ -82,14 +118,14 @@
  
   <!-- Institution Dashboard View (Admin) -->
   <ng-container *ngIf="role === 'institution'">
-    <nav>
+    <!-- <nav>
       <ul>
         <li><a routerLink="/create-event">Create Event</a></li>
         <li><a routerLink="/add-resource">Add Resource</a></li>
         <li><a routerLink="/resource-allocate">Allocate Resource</a></li>
         <li><a routerLink="/logout">Logout</a></li>
       </ul>
-    </nav>
+    </nav> -->
  
     <section class="card">
       <h2>All Events</h2>
