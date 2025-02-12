@@ -19,7 +19,8 @@ export class RegistrationComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private httpService: HttpService,
-    private authService: AuthService
+    private authService: AuthService,
+    private route :Router
   ) {}
 
   ngOnInit(): void {
@@ -37,8 +38,9 @@ export class RegistrationComponent implements OnInit {
       // Call HTTP service to register
       this.httpService.registerUser(this.formModel).subscribe(
         (response) => {
-          this.responseMessage = response;
+          this.responseMessage = "Registration successfull!";
           this.showMessage = true;
+          this.route.navigateByUrl('/login');
         },
         (error) => {
           this.responseMessage = error;

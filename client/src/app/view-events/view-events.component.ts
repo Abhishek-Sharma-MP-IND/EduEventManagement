@@ -13,6 +13,11 @@ import { AuthService } from '../../services/auth.service';
 export class ViewEventsComponent implements OnInit {
   itemForm!: FormGroup;
   events: any[] = [];
+  currentEvent!:any;
+  educatorEvents: any[] = [];
+  role!:any;
+  update:boolean =false;
+  message!:any;
   
   constructor(
     private fb: FormBuilder,
@@ -27,55 +32,59 @@ export class ViewEventsComponent implements OnInit {
       description: ['', Validators.required],
       materials: ['', Validators.required]
     });
-    this.fetchEvents();
+    
+   this.role = this.authService.getRole();
+   this.fetchEvents();
   }
 
   // Method to handle form submission
   onSubmit(): void {
-    if (this.itemForm.valid) {
       // Make an API call to save the event
-      this.httpService.createEvent(this.itemForm.value).subscribe(
-        response => {
-          console.log('Event saved successfully', response);
-          // Refresh the events list after successful save
-          this.fetchEvents();
-          // Clear the form
-          this.itemForm.reset();
-        },
-        error => {
-          console.error('Error saving event', error);
-        }
-      );
-    }
+      
+      if (this.itemForm.valid) {
+        this.httpService.updateEvent(this.itemForm.value, this.currentEvent.id).subscribe(
+          response => {
+            this.message = 'Event updated successfully';
+            // Refresh the events list after successful update
+            this.fetchEvents();
+            // Clear the form
+            this.update = false;
+          },
+          error => {
+           this.message = 'Error updating event';
+          }
+        );
+      }
   }
 
   // Method to fetch all events
   fetchEvents(): void {
-    this.httpService.GetAllevents().subscribe(
-      response => {
-        this.events = response;
+   if(this.role === 'institution'){
+     this.httpService.GetAllevents().subscribe(
+       response => {
+         this.events = response;
+       },
+       error => {
+         console.error('Error fetching events', error);
+       }
+     );
+   } else  if(this.role === 'educator'){
+    this.httpService.getAllEventAgenda().subscribe(
+      (response) => {
+        this.educatorEvents = response;
+        console.log(response)
       },
-      error => {
-        console.error('Error fetching events', error);
+      () => {
+        this.events = [];
       }
     );
+  }
   }
 
   // Method to handle event update
   onUpdate(event: any): void {
-    if (this.itemForm.valid) {
-      this.httpService.updateEvent(this.itemForm.value, event.id).subscribe(
-        response => {
-          console.log('Event updated successfully', response);
-          // Refresh the events list after successful update
-          this.fetchEvents();
-          // Clear the form
-          this.itemForm.reset();
-        },
-        error => {
-          console.error('Error updating event', error);
-        }
-      );
-    }
+    this.update = true;
+    this.itemForm.patchValue(event);
+    this.currentEvent = event;
   }
 }

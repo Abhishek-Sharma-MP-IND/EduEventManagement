@@ -216,17 +216,26 @@ this.itemForm = this.fb.group({
   }
  
   fetchEvents(): void {
-    this.httpService.GetAllevents().subscribe(
-      (response) => {
-        this.events = response;
-        if (this.role === 'educator') {
-          this.educatorEvents = this.events.filter(event => event.assignedTo === 'educator');
+    if(this.role === 'institution'){
+
+      this.httpService.GetAllevents().subscribe(
+        (response) => {
+          this.events = response;
+        },
+        () => {
+          this.events = [];
         }
-      },
-      () => {
-        this.events = [];
-      }
-    );
+      );
+    }else if(this.role === 'educator'){
+      this.httpService.getAllEventAgenda().subscribe(
+        (response) => {
+          this.educatorEvents = response;
+        },
+        () => {
+          this.events = [];
+        }
+      );
+    }
   }
 
   fetchResources(): void {
@@ -259,6 +268,9 @@ this.itemForm = this.fb.group({
         this.responseMessage = 'Error updating event';
       }
     );
+  }
+  onLogout(){
+    this.authService.logout();
   }
 }
 

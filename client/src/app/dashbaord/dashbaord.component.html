@@ -1,53 +1,27 @@
 
 <div class="dashboard-container">
-
-
-
-
-
-
-
 <nav class="navbar">
     <ul>
       <ng-container *ngIf="role === 'student'">
         <li><a routerLink="/booking-details">View Booking Status</a></li>
         <li><a routerLink="/register-for-event">Register for Event</a></li>
-        <li><a routerLink="/logout">Logout</a></li>
+        <li><a href="#"  (onClick)="onLogout()">Logout</a></li>
       </ng-container>
       <ng-container *ngIf="role === 'educator'">
-        <li><a routerLink="/view-events">View Events</a></li>
-        <li><a routerLink="/logout">Logout</a></li>
+        <li ><a routerLink="/dashboard" >View Events</a></li>
+        <li><a href="#"  (onClick)="onLogout()">Logout</a></li>
       </ng-container>
       <ng-container *ngIf="role === 'institution'">
         <li><a routerLink="/create-event">Create Event</a></li>
         <li><a routerLink="/add-resource">Add Resource</a></li>
         <li><a routerLink="/resource-allocate">Allocate Resource</a></li>
-        <li><a routerLink="/logout">Logout</a></li>
+        <li><a href="#"  (onClick)="onLogout()">Logout</a></li>
       </ng-container>
     </ul>
   </nav>
 
-
-
-
-
-
-
-
-
-
-
-
-  
   <!-- Student Dashboard View -->
   <ng-container *ngIf="role === 'student'">
-    <!-- <nav>
-      <ul>
-        <li><a routerLink="/booking-details">View Booking Status</a></li>
-        <li><a routerLink="/register-for-event">Register for Event</a></li>
-        <li><a routerLink="/logout">Logout</a></li>
-      </ul>
-    </nav> -->
  
     <section class="card">
       <h2>Registration for Event</h2>
@@ -84,14 +58,9 @@
  
   <!-- Educator Dashboard View -->
   <ng-container *ngIf="role === 'educator'">
-    <!-- <nav>
-      <ul>
-        <li><a routerLink="/view-events">View Events</a></li>
-        <li><a routerLink="/logout">Logout</a></li>
-      </ul>
-    </nav> -->
  
-    <section class="card">
+    <app-view-events></app-view-events>
+    <!-- <section class="card">
       <h2>Manage Events</h2>
       <table>
         <thead>
@@ -108,12 +77,12 @@
             <td>{{ i + 1 }}</td>
             <td>{{ event.name }}</td>
             <td>{{ event.description }}</td>
-            <td>{{ event.material }}</td>
+            <td>{{ event.materials }}</td>
             <td><button (click)="onUpdate(event)">Update</button></td>
           </tr>
         </tbody>
       </table>
-    </section>
+    </section> -->
   </ng-container>
  
   <!-- Institution Dashboard View (Admin) -->
