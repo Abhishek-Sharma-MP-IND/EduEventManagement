@@ -134,7 +134,7 @@ export class DashboardComponent implements OnInit {
   eventId: string = '';
   studentId: string = '';
   searchStudentId: string = '';
-
+  username:any;
   constructor(
     private fb: FormBuilder,
     private router: Router,
@@ -152,6 +152,7 @@ this.itemForm = this.fb.group({
  
   ngOnInit(): void {
     this.getUserRole();
+    this.username =this.authService.getUsername();
     this.fetchEvents();
     if(this.role === 'institution'){
       this.fetchResources();
