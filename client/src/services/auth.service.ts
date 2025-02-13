@@ -31,9 +31,11 @@ export class AuthService {
   {
     localStorage.setItem('role',role);
   }
-  get getRole ():string|null
+
+  getRole ():string
   {
-    return localStorage.getItem('role');
+    return localStorage.getItem('role') || '';
+
   }
   // Method to retrieve login status
   get getLoginStatus(): boolean {
