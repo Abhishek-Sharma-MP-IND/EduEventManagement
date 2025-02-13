@@ -13,7 +13,7 @@
     <div class="form-group">
       <label for="resourceId">Select Resource:</label>
       <select formControlName="resourceId">
-      <option *ngFor="let resource of resourceList" [value]="resource.id">{{ resource.id }}</option>
+      <option *ngFor="let resource of resourceList" [value]="resource.id">{{ resource.description }}</option>
       </select>
     </div>
  

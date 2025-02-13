@@ -5,7 +5,7 @@
       <ng-container *ngIf="role === 'student'">
         <li><a routerLink="/booking-details">View Booking Status</a></li>
         <li><a routerLink="/register-for-event">Register for Event</a></li>
-        <li><a href="#"  (onClick)="onLogout()">Logout</a></li>
+        <li><a  href="#" (click)="onLogout()">Logout</a></li>
       </ng-container>
       <ng-container *ngIf="role === 'educator'">
         <li ><a routerLink="/dashboard" >View Events</a></li>
@@ -29,8 +29,10 @@
       <input type="text" placeholder="Enter Student ID" [(ngModel)]="studentId" />
       <button (click)="registerEvent()">Submit</button>
     </section>
+
+    <app-booking-details></app-booking-details>
  
-    <section class="card">
+    <!-- <section class="card">
       <h2>Event Registration Status</h2>
       <input type="text" placeholder="Enter Student ID" [(ngModel)]="searchStudentId" />
       <button (click)="searchEventStatus()">Search</button>
@@ -53,7 +55,7 @@
       </table>
  
       <p *ngIf="showMessage">{{ responseMessage }}</p>
-    </section>
+    </section> -->
   </ng-container>
  
   <!-- Educator Dashboard View -->

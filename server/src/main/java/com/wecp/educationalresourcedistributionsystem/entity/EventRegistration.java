@@ -15,6 +15,8 @@ public class EventRegistration {
    
    @ManyToOne
    private Event event;
+
+   
    public EventRegistration(Long id, String status, Long studentId, Event event) {
       this.id = id;
       this.status = status;
