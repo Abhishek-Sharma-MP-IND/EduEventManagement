@@ -16,6 +16,16 @@ private Long id;
 private String resourceType;
 private String description;
 
+private String availability;
+
+public String getAvailability() {
+    return availability;
+}
+
+public void setAvailability(String availability) {
+    this.availability = availability;
+}
+
 @ManyToOne
 @JoinColumn(name="event_id")
 @JsonIgnore
@@ -23,10 +33,14 @@ private Event event;
 
 public Resource(){}
 
-public Resource(Long id, String resourceType, String description, Event event) {
+
+
+
+public Resource(Long id, String resourceType, String description, String availability, Event event) {
     this.id = id;
     this.resourceType = resourceType;
     this.description = description;
+    this.availability = availability;
     this.event = event;
 }
 

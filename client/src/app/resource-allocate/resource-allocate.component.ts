@@ -35,37 +35,51 @@ export class ResourceAllocateComponent implements OnInit{
       }
  
       getEvent() {
-        // this.httpService.GetAllevents().subscribe(
-        //   (data:any) => this.eventList = data,
-        //   (error:any) => this.handleError(error)
-        // );
+
+        this.httpService.GetAllevents().subscribe(
+          (data: any) => {
+            this.eventList = data;
+          },
+          (error:any) => {
+            this.showError = true;
+            // this.errorMessage = error.message;
+            this.errorMessage = 'Error fetching events';
+          }
+        );
       }
  
       getResources() {
-        // this.httpService.GetAllResources().subscribe(
-        //   (data:any) => this.resourceList = data,
-        //   (error:any) => this.handleError(error)
-        // );
+        this.httpService.GetAllResources().subscribe(
+          (data: any) => {
+            this.resourceList = data;
+          },
+          (error:any) => {
+            this.showError = true;
+            // this.errorMessage = error.message;
+            this.errorMessage = 'Error fetching Resources';
+          }
+        );
       }
  
       onSubmit() {
-        // if (this.itemForm.invalid) {
-        //   this.showError = true;
-        //   this.errorMessage = 'All fields are required';
-        //   return;
-        // }
-        // this.httpService.allocateResources(
-        //   this.itemForm.value.eventId,
-        //   this.itemForm.value.resourceId,
-        //   { details: this.itemForm.value.allocationDetails }
-        // ).subscribe(
-        //   (response:any) => {
-        //     this.showMessage = true;
-        //     this.responseMessage = 'Resource allocated successfully!';
-        //     this.itemForm.reset();
-        //   },
-        //   (error:any) => this.handleError(error)
-        // );
+        if (this.itemForm.invalid) {
+          this.showError = true;
+          this.errorMessage = 'All fields are required';
+          return;
+        }
+        this.httpService.allocateResources(
+          this.itemForm.value.eventId,
+          this.itemForm.value.resourceId,
+          { details: this.itemForm.value.allocationDetails }
+        ).subscribe(
+          (response:any) => {
+            this.showMessage = true;
+            this.responseMessage = 'Resource allocated successfully!';
+            this.itemForm.reset();
+          },
+          (error:any) => this.handleError(error)
+        );
+
       }
  
       handleError(error: any) {

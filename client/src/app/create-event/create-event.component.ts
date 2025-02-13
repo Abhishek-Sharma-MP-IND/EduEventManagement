@@ -39,17 +39,24 @@ export class CreateEventComponent implements OnInit {
       (data: any) => {
         this.eventList = data;
       },
-      (error: any) => {
+
+      (error:any) => {
         this.showError = true;
+        // this.errorMessage = error.message;
         this.errorMessage = 'Error fetching events';
+
       }
     );
   }
  
   onSubmit(): void {
     if (this.itemForm.valid) {
+      this.httpService.createEvent(this.itemForm.value).subscribe((data)=>{
+        console.log(data);
       this.showMessage = true;
       this.responseMessage = 'Event created successfully!';
+      });
+      
     } else {
       this.showError = true;
       this.errorMessage = 'Please fill in all required fields.';

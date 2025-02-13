@@ -28,7 +28,6 @@ import { RegisterForEventComponent } from './register-for-event/register-for-eve
       ResourceAllocateComponent,
       ViewEventsComponent,
       BookingDetailsComponent,
-   
       RegisterForEventComponent
   ],
   imports: [
