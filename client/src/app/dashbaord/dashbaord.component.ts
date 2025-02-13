@@ -278,5 +278,6 @@ this.itemForm = this.fb.group({
   }
   onLogout(){
     this.authService.logout();
+    window.location.reload();
   }
 }
