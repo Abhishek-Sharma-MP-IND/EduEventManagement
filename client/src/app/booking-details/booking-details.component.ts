@@ -14,16 +14,18 @@ export class BookingDetailsComponent implements OnInit {
   studentId: string = '';
   bookingDetails: any[] = [];
 
-  constructor(private httpService: HttpService) {}
+  constructor(private httpService: HttpService, private auth:AuthService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.studentId = this.auth.getId();
+   this.fetchBookingDetails()
+  }
 
   fetchBookingDetails(): void {
-    if (!this.studentId) {
-      alert('Please enter a Student ID.');
-      return;
-    }
-
+    // if (!this.studentId) {
+    //   alert('Please enter a Student ID.');
+    //   return;
+    // }
     this.httpService.getBookingDetails(this.studentId).subscribe(
       (response) => {
         this.bookingDetails = response || [];
