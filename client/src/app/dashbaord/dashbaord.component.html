@@ -169,17 +169,16 @@
       <table>
         <thead>
           <tr>
-            <th>Event</th>
-            <th>Resource</th>
-            <th>Allocation Details</th>
+            <th>Event ID</th>
+            <th>Resource Description</th>
+            <th>Availability</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let allocatedResource of allocatedResources">
             <td>{{ allocatedResource.id }}</td>
-            <!-- <td>{{ allocatedResource.resourceId }}</td> -->
-            <td>{{ allocatedResource.availability }}</td>
             <td>{{ allocatedResource.description }}</td>
+            <td>{{ allocatedResource.availability }}</td>
           </tr>
         </tbody>
       </table>
