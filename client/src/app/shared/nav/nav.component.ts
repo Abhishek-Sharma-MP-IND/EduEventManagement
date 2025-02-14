@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AuthService } from '../../../services/auth.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { AuthService } from '../../../services/auth.service';
 })
 export class NavComponent implements OnInit {
 role:any;
-  constructor(private auth:AuthService) { }
+  constructor(private auth:AuthService, private route: Router) { }
 
   ngOnInit(): void {
 this.role =this.auth.getRole()
@@ -16,6 +17,7 @@ this.role =this.auth.getRole()
 
   onLogout(){
     this.auth.logout();
+    // this.route.navigateByUrl('/login');
     window.location.reload();
   }
 

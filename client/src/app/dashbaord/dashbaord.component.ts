@@ -249,7 +249,7 @@ this.itemForm = this.fb.group({
   fetchResources(): void {
     this.httpService.GetAllResources().subscribe(
       (response) => {
-        this.resources = response; // Store fetched resources
+        this.resources = response;
       },
       (error) => {
         console.error('Error fetching resources', error);
@@ -276,6 +276,11 @@ this.itemForm = this.fb.group({
         this.responseMessage = 'Error updating event';
       }
     );
+  }
+  onLogout(){
+    this.authService.logout();
+    // this.route.navigateByUrl('/login');
+    window.location.reload();
   }
  
 }

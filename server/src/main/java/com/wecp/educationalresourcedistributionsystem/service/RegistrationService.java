@@ -33,4 +33,6 @@ public class RegistrationService {
     public boolean isStudentRegisteredForEvent(Long eventId, Long studentId) {
         return eventRegistrationRepository.existsByEventIdAndStudentId(eventId, studentId);
     }
+
+    // public List<Even
 }
